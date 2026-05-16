@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexus 2026 | College Event Portal</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Ionicons for modern icons -->
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="logo">
+            <ion-icon name="planet-outline"></ion-icon>
+            <span>Nexus '26</span>
+        </div>
+        <div class="hamburger" id="hamburger">
+            <ion-icon name="menu-outline"></ion-icon>
+        </div>
+        <ul class="nav-links" id="nav-links">
+            <li><a href="#home" class="active" data-section="home">Home</a></li>
+            <li><a href="#events" data-section="events">Events</a></li>
+            <li><a href="#schedule" data-section="schedule">Schedule</a></li>
+            <li><a href="#register" class="btn-primary" data-section="register">Register</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content Container (SPA) -->
+    <main id="main-content">
+
+        <!-- HOME SECTION -->
+        <section id="home" class="section-view active-section">
+            <div class="hero">
+                <div class="hero-content">
+                    <span class="badge">Annual Tech Fest</span>
+                    <h1 class="glitch" data-text="Discover The Future">Discover The Future</h1>
+                    <p>Join the biggest college festival of the year. Three days of technology, innovation, and sports.</p>
+                    <div class="hero-buttons">
+                        <button class="btn-primary" onclick="navigateTo('events')">Explore Events</button>
+                        <button class="btn-secondary" onclick="navigateTo('register')">Register Now</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- EVENTS SECTION -->
+        <section id="events" class="section-view">
+            <div class="container">
+                <h2 class="section-title">Featured Events</h2>
+                
+                <div class="event-filters">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="technical">Technical</button>
+                    <button class="filter-btn" data-filter="non-technical">Non-Technical</button>
+                    <button class="filter-btn" data-filter="sports">Sports</button>
+                </div>
+
+                <div class="events-grid" id="events-container">
+                    <!-- Event cards will be dynamically injected by app.js -->
+                </div>
+            </div>
+        </section>
+
+        <!-- SCHEDULE SECTION -->
+        <section id="schedule" class="section-view">
+            <div class="container">
+                <h2 class="section-title">Event Schedule</h2>
+                <div class="timeline" id="schedule-container">
+                    <!-- Schedule items will be dynamically injected by app.js -->
+                </div>
+            </div>
+        </section>
+
+        <!-- REGISTRATION SECTION -->
+        <section id="register" class="section-view">
+            <div class="container">
+                <h2 class="section-title">Join The Event</h2>
+                <div class="form-container">
+                    <form id="registration-form">
+                        <div class="form-group">
+                            <label for="fullName">Full Name</label>
+                            <input type="text" id="fullName" placeholder="John Doe" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="studentId">Student ID / Roll No</label>
+                            <input type="text" id="studentId" placeholder="12345678" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">College Email</label>
+                            <input type="email" id="email" placeholder="john@college.edu" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="branch">Branch / Department</label>
+                            <select id="branch" required>
+                                <option value="" disabled selected>Select Branch</option>
+                                <option value="CSE">Computer Science</option>
+                                <option value="ECE">Electronics</option>
+                                <option value="ME">Mechanical</option>
+                                <option value="CE">Civil</option>
+                                <option value="IT">Information Technology</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="eventSelect">Select Event</label>
+                            <select id="eventSelect" required>
+                                <option value="" disabled selected>Select an Event</option>
+                                <!-- Options will be injected by app.js -->
+                            </select>
+                        </div>
+
+                        <button type="submit" class="btn-primary full-width">Complete Registration</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Nexus College Fest. All rights reserved.</p>
+    </footer>
+
+    <!-- Success Modal -->
+    <div id="success-modal" class="modal">
+        <div class="modal-content">
+            <div class="success-icon">
+                <ion-icon name="checkmark-circle"></ion-icon>
+            </div>
+            <h3>Registration Successful!</h3>
+            <p id="modal-message">Thank you for registering. See you at the event!</p>
+            <button class="btn-primary" id="close-modal">Awesome</button>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
